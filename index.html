@@ -218,3 +218,203 @@
       border-radius: 50px;
       border: none;
       font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .court-container {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #btn-no {
+      position: absolute;
+      transition: all 0.15s ease;
+      background: #ef4444;
+      color: white;
+      z-index: 20;
+    }
+
+    #btn-yes {
+      background: #22c55e;
+      color: white;
+      font-size: 1.2rem;
+      padding: 14px 36px;
+      z-index: 10;
+    }
+
+    .verdict-box {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      border-radius: 12px;
+      color: #86efac;
+      font-weight: 600;
+      display: none;
+    }
+
+    .scheduler-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .option-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .option-card:hover, .option-card.selected {
+      border-color: var(--secondary);
+      background: rgba(236, 72, 153, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .option-card span {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .date-picker-input {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--card-border);
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1rem;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      color-scheme: dark;
+    }
+
+    .photo-frame {
+      background: #ffffff;
+      padding: 12px 12px 35px 12px;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+      max-width: 380px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center 15%;
+      border-radius: 4px;
+    }
+
+    .photo-caption {
+      color: #1e293b;
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 15px;
+      z-index: 10;
+    }
+
+    .dots-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: var(--secondary);
+      width: 28px;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .deck-container { min-height: 580px; }
+      .slide { padding: 25px 18px; }
+      h1 { font-size: 2.1rem; }
+      h2 { font-size: 1.7rem; }
+      .photo-frame img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="confetti-canvas"></div>
+
+  <div class="legal-floating-icons" id="floating-icons"></div>
+
+  <div class="audio-control paused" id="music-btn" title="Toggle Happy Birthday Music">
+    <span>🎵</span>
+    <div class="music-waves">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <span id="music-text" style="font-size: 0.85rem; font-weight: 600;">Play Music</span>
+  </div>
+
+  <div class="deck-container">
+    
+    <div class="slide active" id="slide-1">
+      <div class="legal-badge">⚖️ Supreme Court of Siblings</div>
+      <h1>Order in the Court! 🔨</h1>
+      <p class="subtitle">The Honorable Advocate Sanu Didi is requested to preside over today's special session. A very important verdict needs to be delivered
