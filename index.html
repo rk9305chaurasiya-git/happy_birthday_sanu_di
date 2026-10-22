@@ -347,6 +347,7 @@
       width: 100%;
       height: 260px;
       object-fit: cover;
+      object-position: center 15%;
       border-radius: 4px;
     }
 
@@ -447,15 +448,15 @@
       <p class="subtitle">Pick an official date & venue for the birthday treat! (No objections allowed! 😉)</p>
       
       <div class="scheduler-grid">
-        <div class="option-card" onclick="selectOption(this, 'Fine Dining Dinner')">
+        <div class="option-card" onclick="selectOption(this, 'Fine Dining Dinner or Lunch')">
           <span>🍕</span>
           <strong>Grand Treat & Dinner</strong>
         </div>
-        <div class="option-card" onclick="selectOption(this, 'Weekend Trip')">
+        <div class="option-card" onclick="selectOption(this, 'Shopping & Outing')">
           <span>🛍️</span>
           <strong>Shopping & Outing</strong>
         </div>
-        <div class="option-card" onclick="selectOption(this, 'Coffee & Cake')">
+        <div class="option-card" onclick="selectOption(this, 'Coffee & Desserts')">
           <span>☕</span>
           <strong>Coffee & Desserts</strong>
         </div>
@@ -671,8 +672,9 @@
         osc.type = 'triangle';
         osc.frequency.value = freq;
 
-        gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration - 0.05);
+        // Increased gain volume from 0.15 to 0.45 for much louder output
+        gain.gain.setValueAtTime(0.45, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration - 0.05);
 
         osc.connect(gain);
         gain.connect(this.ctx.destination);
@@ -700,7 +702,7 @@
           const [freq, dur] = notes[index];
           this.playTone(freq, dur);
           index++;
-          this.timer = setTimeout(playNext, dur * 600);
+          this.timer = setTimeout(playNext, dur * 550);
         };
 
         playNext();
