@@ -417,4 +417,317 @@
     <div class="slide active" id="slide-1">
       <div class="legal-badge">⚖️ Supreme Court of Siblings</div>
       <h1>Order in the Court! 🔨</h1>
-      <p class="subtitle">The Honorable Advocate Sanu Didi is requested to preside over today's special session. A very important verdict needs to be delivered
+      <p class="subtitle">The Honorable Advocate Sanu Didi is requested to preside over today's special session. A very important verdict needs to be delivered today!</p>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="nextSlide()">Begin Proceedings ⚖️</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-2">
+      <div class="legal-badge">🚨 Urgent Hearing</div>
+      <h2>Case #101: The Status Issue</h2>
+      <p class="subtitle">As my learned elder sister and lawyer: Do you forgive me for not putting up a WhatsApp status on time today? 🙈</p>
+      
+      <div class="court-container" id="court-box">
+        <button class="btn" id="btn-yes" onclick="forgiveAccepted()">YES, Case Dismissed! ❤️</button>
+        <button class="btn" id="btn-no" onmouseover="moveNoButton()" onclick="moveNoButton()">NO Way ❌</button>
+      </div>
+
+      <div class="verdict-box" id="verdict">
+        ✨ Verdict Recorded: Opposing counsel's plea accepted! You are officially the best Didi! ❤️
+      </div>
+
+      <div class="btn-group" style="margin-top: 10px;">
+        <button class="btn btn-secondary" onclick="nextSlide()">Next Exhibit ➡️</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-3">
+      <div class="legal-badge">🎉 Motion for Celebration</div>
+      <h2>When are we celebrating?</h2>
+      <p class="subtitle">Pick an official date & venue for the birthday treat! (No objections allowed! 😉)</p>
+      
+      <div class="scheduler-grid">
+        <div class="option-card" onclick="selectOption(this, 'Grand Dinner or Lunch')">
+          <span>🍕</span>
+          <strong>Grand Dinner or Lunch</strong>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'A Planned Trip')">
+          <span>✈️</span>
+          <strong>A Planned Trip</strong>
+        </div>
+        <div class="option-card" onclick="selectOption(this, 'Coffee & Desserts')">
+          <span>☕</span>
+          <strong>Coffee & Desserts</strong>
+        </div>
+      </div>
+
+      <div>
+        <label for="party-date" style="font-size: 0.9rem; color: #cbd5e1; display: block;">Select Official Hearing Date:</label>
+        <input type="date" id="party-date" class="date-picker-input">
+      </div>
+
+      <div class="btn-group" style="margin-top: 25px;">
+        <button class="btn btn-primary" onclick="confirmScheduler()">Issue Subpoena (Confirm) 📜</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-4">
+      <div class="legal-badge">📸 Exhibit A</div>
+      <h2>Memories with Didi</h2>
+      <p class="subtitle">The coolest lawyer in town taking care of business!</p>
+      
+      <div class="photo-frame">
+        <img src="pic1.jpeg" alt="Didi Memory Photo 1">
+        <div class="photo-caption">Arguments won, hearts stolen! ✨</div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="prevSlide()">⬅️ Back</button>
+        <button class="btn btn-primary" onclick="nextSlide()">Next Exhibit ➡️</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-5">
+      <div class="legal-badge">📸 Exhibit B & C</div>
+      <h2>Always Styled for Success! ⚖️</h2>
+      <p class="subtitle">Defending justice with elegance and a warm smile.</p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; width: 100%;">
+        <div class="photo-frame" style="max-width: 240px; transform: rotate(-3deg);">
+          <img src="pic2.jpeg" alt="Didi Memory Photo 2" style="height: 200px;">
+          <div class="photo-caption">Elegance in Court 💼</div>
+        </div>
+        <div class="photo-frame" style="max-width: 240px; transform: rotate(3deg);">
+          <img src="pic3.jpeg" alt="Didi Memory Photo 3" style="height: 200px;">
+          <div class="photo-caption">Advocate in Action! ⚖️</div>
+        </div>
+      </div>
+
+      <div class="btn-group" style="margin-top: 15px;">
+        <button class="btn btn-secondary" onclick="prevSlide()">⬅️ Back</button>
+        <button class="btn btn-primary" onclick="nextSlide()">Final Wishes ➡️</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-6">
+      <div class="legal-badge" style="background: rgba(236, 72, 153, 0.2); color: #f472b6; border-color: #f472b6;">💍 Case Docket: The Next Chapter</div>
+      <h1>Happy Birthday, Didi! ✨</h1>
+      
+      <p class="subtitle" style="font-size: 1.05rem; line-height: 1.8; max-width: 680px; text-align: center;">
+        Happy Birthday to the most amazing sister and brilliant advocate! ⚖️<br>
+        As you step into this beautiful new chapter of marriage, I wish you endless love, happiness, and shared laughter. 💖<br>
+        May your new journey be as successful, bright, and full of joy as you make everyone else's lives!<br>
+        No matter how many court cases you win, you will always be my champion sister! 🌟
+      </p>
+
+      <div style="margin-top: 10px;">
+        <div class="photo-frame" style="max-width: 200px; transform: rotate(0deg); padding-bottom: 20px;">
+          <img src="pic4.jpeg" alt="Didi Photo 4" style="height: 150px;">
+          <div class="photo-caption" style="font-size: 1.2rem;">Bride-to-be Advocate Didi! 👑</div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="triggerGrandFinale()">Celebrate Grand Finale! 🎉💥</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-controls">
+    <button class="btn btn-secondary" style="padding: 8px 16px;" onclick="prevSlide()">❮</button>
+    <div class="dots-container" id="dots"></div>
+    <button class="btn btn-secondary" style="padding: 8px 16px;" onclick="nextSlide()">❯</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 6;
+    let selectedPlan = '';
+
+    const dotsContainer = document.getElementById('dots');
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `dot ${i === 0 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateSlides() {
+      document.querySelectorAll('.slide').forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      document.querySelectorAll('.dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlides();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides();
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlides();
+    }
+
+    function moveNoButton() {
+      const btnNo = document.getElementById('btn-no');
+      const box = document.getElementById('court-box');
+      
+      const boxRect = box.getBoundingClientRect();
+      const btnRect = btnNo.getBoundingClientRect();
+
+      const maxX = boxRect.width - btnRect.width - 20;
+      const maxY = boxRect.height - btnRect.height - 20;
+
+      const newX = Math.random() * maxX - (maxX / 2);
+      const newY = Math.random() * maxY - (maxY / 2);
+
+      btnNo.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
+
+    function forgiveAccepted() {
+      document.getElementById('verdict').style.display = 'block';
+      document.getElementById('btn-no').style.display = 'none';
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    }
+
+    function selectOption(element, planName) {
+      document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedPlan = planName;
+    }
+
+    function confirmScheduler() {
+      const dateVal = document.getElementById('party-date').value;
+      if (!selectedPlan && !dateVal) {
+        alert("Objection! Please select a party option or date first! 😉");
+        return;
+      }
+      alert(`Motion Approved! 🎉\n\nPlan: ${selectedPlan || 'Surprise Treat'}\nDate: ${dateVal || 'To be decided in court'}\n\nSee you there Didi!`);
+      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+      nextSlide();
+    }
+
+    function triggerGrandFinale() {
+      const duration = 5 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+        const particleCount = 50 * (timeLeft / duration);
+
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+      }, 250);
+    }
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const floatingContainer = document.getElementById('floating-icons');
+    const icons = ['⚖️', '🔨', '🎂', '🎈', '🎉', '📜', '💍', '✨'];
+    for (let i = 0; i < 20; i++) {
+      const item = document.createElement('div');
+      item.className = 'float-item';
+      item.innerText = icons[Math.floor(Math.random() * icons.length)];
+      item.style.left = `${Math.random() * 100}%`;
+      item.style.animationDuration = `${8 + Math.random() * 10}s`;
+      item.style.animationDelay = `${Math.random() * 5}s`;
+      floatingContainer.appendChild(item);
+    }
+
+    class BdayMusicPlayer {
+      constructor() {
+        this.ctx = null;
+        this.isPlaying = false;
+        this.timer = null;
+      }
+
+      init() {
+        if (!this.ctx) {
+          this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+      }
+
+      playTone(freq, duration) {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+
+        gain.gain.setValueAtTime(0.45, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration - 0.05);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start();
+        osc.stop(this.ctx.currentTime + duration);
+      }
+
+      playSong() {
+        this.init();
+        if (this.isPlaying) return;
+        this.isPlaying = true;
+
+        const notes = [
+          [261.63, 0.4], [261.63, 0.4], [293.66, 0.8], [261.63, 0.8], [349.23, 0.8], [329.63, 1.2],
+          [261.63, 0.4], [261.63, 0.4], [293.66, 0.8], [261.63, 0.8], [392.00, 0.8], [349.23, 1.2],
+          [261.63, 0.4], [261.63, 0.4], [523.25, 0.8], [440.00, 0.8], [349.23, 0.8], [329.63, 0.8], [293.66, 0.8],
+          [466.16, 0.4], [466.16, 0.4], [440.00, 0.8], [349.23, 0.8], [392.00, 0.8], [349.23, 1.2]
+        ];
+
+        let index = 0;
+        const playNext = () => {
+          if (!this.isPlaying) return;
+          if (index >= notes.length) index = 0;
+          const [freq, dur] = notes[index];
+          this.playTone(freq, dur);
+          index++;
+          this.timer = setTimeout(playNext, dur * 550);
+        };
+
+        playNext();
+      }
+
+      stop() {
+        this.isPlaying = false;
+        if (this.timer) clearTimeout(this.timer);
+      }
+    }
+
+    const musicPlayer = new BdayMusicPlayer();
+    const musicBtn = document.getElementById('music-btn');
+    const musicText = document.getElementById('music-text');
+
+    musicBtn.onclick = () => {
+      if (musicPlayer.isPlaying) {
+        musicPlayer.stop();
+        musicBtn.classList.add('paused');
+        musicText.innerText = "Play Music";
+      } else {
+        musicPlayer.playSong();
+        musicBtn.classList.remove('paused');
+        musicText.innerText = "Playing 🎵";
+      }
+    };
+  </script>
+</body>
+</html>
