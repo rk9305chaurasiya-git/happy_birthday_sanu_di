@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Advocate Di! ⚖️🎉</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff7eb3, #ff758c, #4299e1, #9f7aea, #ed64a6);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .title-font {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        /* Glassmorphism Container */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating Balloon Animation */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            opacity: 0.85;
+            animation: floatUp 12s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Polaroid Photo Card */
+        .polaroid {
+            background: white;
+            padding: 12px 12px 25px 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        /* Smooth Slide Transition */
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Runaway No Button styling */
+        #noBtn {
+            position: relative;
+            transition: all 0.15s ease-out;
+        }
+
+        /* Pulse glow for main action button */
+        .btn-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(236, 72, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between text-gray-800 relative">
+
+    <!-- Floating Background Balloons Container -->
+    <div id="balloonContainer" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Header Navbar -->
+    <header class="relative z-20 w-full p-4 flex justify-between items-center max-w-5xl mx-auto">
+        <div class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-md">
+            <i class="fa-solid fa-gavel text-amber-600 text-xl"></i>
+            <span class="font-bold text-gray-800 text-sm md:text-base title-font">High Court of Siblings ⚖️</span>
+        </div>
+        
+        <!-- Audio Synthesizer Control -->
+        <button id="musicToggle" onclick="toggleMusic()" class="bg-white/90 hover:bg-white text-purple-600 font-bold px-4 py-2 rounded-full shadow-md flex items-center gap-2 transition transform active:scale-95">
+            <i id="musicIcon" class="fa-solid fa-music text-purple-600 animate-bounce"></i>
+            <span id="musicText" class="text-xs md:text-sm">Play B'day Tune 🎵</span>
+        </button>
+    </header>
+
+    <!-- Main Content Slide Deck -->
+    <main class="relative z-10 flex-grow flex items-center justify-center p-4">
+        <div class="w-full max-w-3xl glass-card rounded-3xl p-6 md:p-10 relative overflow-hidden min-h-[520px] flex flex-col justify-between">
+            
+            <!-- SLIDE 1: Welcome & Birthday Announcement -->
+            <div id="slide1" class="slide active space-y-6 text-center my-auto">
+                <div class="inline-block bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold mb-2">
+                    ⚖️ COURT IN SESSION ⚖️
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black title-font text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                    Happy Birthday, Advocate Sister! 👩‍⚖️🎉
+                </h1>
+                <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+                    By order of the High Court of Siblings, you are hereby convicted of being the most amazing, hardworking, and coolest elder sister in the world!
+                </p>
+                <div class="py-2">
+                    <span class="inline-block text-6xl md:text-7xl animate-bounce">🎂⚖️✨</span>
+                </div>
+                <p class="text-sm md:text-base text-purple-700 font-semibold italic">
+                    "Objection overruled! Today, no legal arguments—only cake and celebrations!"
+                </p>
+            </div>
+
+            <!-- SLIDE 2: Interactive Question (Escaping No Button) -->
+            <div id="slide2" class="slide space-y-6 text-center my-auto">
+                <div class="inline-block bg-pink-100 text-pink-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                    📜 CROSS-EXAMINATION TIME
+                </div>
+                <h2 class="text-2xl md:text-4xl font-bold title-font text-purple-900">
+                    Important Sibling Question! 🤫
+                </h2>
+                <p class="text-base md:text-xl text-gray-700 font-medium">
+                    "Did you forgive me for not sharing a birthday status update on time?" 🙈📱
+                </p>
+
+                <!-- Escaping Button Container -->
+                <div id="buttonArea" class="relative min-h-[140px] flex items-center justify-center gap-6 pt-4">
+                    <button onclick="forgiveAccepted()" class="btn-glow bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-3.5 rounded-full shadow-lg transform hover:scale-105 transition">
+                        Yes, I forgive you! 🥰
+                    </button>
+                    
+                    <button id="noBtn" onmouseenter="runawayNo()" onclick="runawayNo()" class="bg-red-500 text-white font-bold text-lg px-8 py-3.5 rounded-full shadow-lg">
+                        No 😤
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Celebration Planner -->
+            <div id="slide3" class="slide space-y-6 text-center my-auto">
+                <div class="inline-block bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                    🍕 COURT-ORDERED CELEBRATION
+                </div>
+                <h2 class="text-2xl md:text-4xl font-bold title-font text-purple-900">
+                    When would you like to have celebrations? 🥳
+                </h2>
+                <p class="text-gray-600 text-sm md:text-base">
+                    Select a date & time for the official celebration treat!
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
+                    <button onclick="selectTreatOption('Tonight @ Dinner 🍕')" class="p-4 border-2 border-purple-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition flex items-center gap-3">
+                        <span class="text-2xl">🌙</span>
+                        <div>
+                            <div class="font-bold text-purple-900">Tonight @ Dinner</div>
+                            <div class="text-xs text-gray-500">Quick food & cake treat!</div>
+                        </div>
+                    </button>
+
+                    <button onclick="selectTreatOption('This Weekend Party! 🎉')" class="p-4 border-2 border-purple-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition flex items-center gap-3">
+                        <span class="text-2xl">🥳</span>
+                        <div>
+                            <div class="font-bold text-purple-900">This Weekend</div>
+                            <div class="text-xs text-gray-500">Full party weekend vibes</div>
+                        </div>
+                    </button>
+
+                    <button onclick="selectTreatOption('Whenever You Say, Boss! 👑')" class="p-4 border-2 border-purple-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition flex items-center gap-3">
+                        <span class="text-2xl">👑</span>
+                        <div>
+                            <div class="font-bold text-purple-900">Whenever You Say</div>
+                            <div class="text-xs text-gray-500">You are the advocate boss!</div>
+                        </div>
+                    </button>
+
+                    <div class="p-4 border-2 border-purple-200 rounded-2xl flex flex-col justify-center">
+                        <label class="text-xs font-bold text-purple-900 mb-1">Pick Custom Date:</label>
+                        <input type="date" id="customDateInput" onchange="selectCustomDate(this.value)" class="text-xs p-1.5 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    </div>
+                </div>
+
+                <!-- Confirmation Output -->
+                <div id="treatConfirmation" class="hidden p-4 bg-green-100 text-green-800 rounded-2xl font-bold text-sm md:text-base border border-green-300 animate-pulse">
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Memory Gallery 1 -->
+            <div id="slide4" class="slide space-y-6 text-center my-auto">
+                <div class="inline-block bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                    📸 EXHIBIT A: MEMORIES
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold title-font text-purple-900">
+                    The Best Sister & Advocate 💖
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                    <!-- Photo Card 1 -->
+                    <div class="polaroid rounded-xl transform -rotate-2 hover:rotate-0">
+                        <div class="w-full h-48 bg-purple-100 rounded-lg overflow-hidden flex items-center justify-center border">
+                            <!-- REPLACE THIS IMAGE SRC WITH YOUR SISTER'S PHOTO -->
+                            <img src="https://placehold.co/600x400/9f7aea/ffffff?text=Sister's+Photo+1" alt="Sister Photo 1" class="w-full h-full object-cover">
+                        </div>
+                        <p class="mt-3 text-sm font-semibold text-gray-700">Style, Grace & Arguments! ⚖️</p>
+                    </div>
+
+                    <!-- Photo Card 2 -->
+                    <div class="polaroid rounded-xl transform rotate-2 hover:rotate-0">
+                        <div class="w-full h-48 bg-pink-100 rounded-lg overflow-hidden flex items-center justify-center border">
+                            <!-- REPLACE THIS IMAGE SRC WITH YOUR SISTER'S PHOTO -->
+                            <img src="https://placehold.co/600x400/ed64a6/ffffff?text=Sister's+Photo+2" alt="Sister Photo 2" class="w-full h-full object-cover">
+                        </div>
+                        <p class="mt-3 text-sm font-semibold text-gray-700">Always Winning at Life ✨</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Memory Gallery 2 -->
+            <div id="slide5" class="slide space-y-6 text-center my-auto">
+                <div class="inline-block bg-yellow-100 text-yellow-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                    📸 EXHIBIT B: VERDICT
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold title-font text-purple-900">
+                    Forever Grateful for You! 🌟
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                    <!-- Photo Card 3 -->
+                    <div class="polaroid rounded-xl transform rotate-1 hover:rotate-0">
+                        <div class="w-full h-48 bg-blue-100 rounded-lg overflow-hidden flex items-center justify-center border">
+                            <!-- REPLACE THIS IMAGE SRC WITH YOUR SISTER'S PHOTO -->
+                            <img src="https://placehold.co/600x400/4299e1/ffffff?text=Sister's+Photo+3" alt="Sister Photo 3" class="w-full h-full object-cover">
+                        </div>
+                        <p class="mt-3 text-sm font-semibold text-gray-700">Queen of Courtrooms 👑</p>
+                    </div>
+
+                    <!-- Photo Card 4 -->
+                    <div class="polaroid rounded-xl transform -rotate-1 hover:rotate-0">
+                        <div class="w-full h-48 bg-emerald-100 rounded-lg overflow-hidden flex items-center justify-center border">
+                            <!-- REPLACE THIS IMAGE SRC WITH YOUR SISTER'S PHOTO -->
+                            <img src="https://placehold.co/600x400/48bb78/ffffff?text=Sister's+Photo+4" alt="Sister Photo 4" class="w-full h-full object-cover">
+                        </div>
+                        <p class="mt-3 text-sm font-semibold text-gray-700">Best Elder Sister Ever ❤️</p>
+                    </div>
+                </div>
+                <p class="text-xs md:text-sm text-gray-500 pt-2 italic">
+                    "May your year be filled with winning cases, happiness, and lots of treats!"
+                </p>
+            </div>
+
+            <!-- SLIDE 6: A New Chapter Begins (Wedding Wishes) -->
+            <div id="slide6" class="slide space-y-6 text-center my-auto">
+                <div class="inline-block bg-rose-100 text-rose-800 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                    💍 CASE DOCKET: THE NEXT CHAPTER
+                </div>
+                <h2 class="text-2xl md:text-4xl font-bold title-font text-pink-600">
+                    A Beautiful New Journey Begins! ✨👰‍♀️
+                </h2>
+                
+                <div class="bg-gradient-to-r from-pink-50 via-purple-50 to-rose-50 p-6 md:p-8 rounded-2xl border-2 border-pink-200 shadow-inner max-w-xl mx-auto space-y-4">
+                    <p class="text-gray-800 text-base md:text-lg leading-relaxed font-medium">
+                        As you prepare to tie the knot and step into this magnificent new chapter of life, my heart is filled with so much joy and warmth for you. 💖
+                    </p>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        You've handled every case in life with absolute grace, wisdom, and strength—and I know you'll be the most extraordinary, loving partner in this beautiful union! ⚖️🤝
+                    </p>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        Wishing you endless love, laughter, lifetime partnership, and unmatched success both in the courtroom and at home. 🥂
+                    </p>
+                    <p class="text-purple-900 font-bold text-base md:text-lg pt-2">
+                        I am so proud to be your sibling. Happy Birthday Di, and here's to a lifetime of happiness ahead! 🎉❤️
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <div class="pt-6 mt-4 border-t border-gray-200/60 flex items-center justify-between z-20">
+                <button id="prevBtn" onclick="changeSlide(-1)" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 rounded-full text-sm transition flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-chevron-left"></i> Prev
+                </button>
+
+                <!-- Indicator Dots -->
+                <div class="flex gap-2" id="dotContainer">
+                    <span class="w-3 h-3 rounded-full bg-purple-600 transition-all"></span>
+                    <span class="w-3 h-3 rounded-full bg-gray-300 transition-all"></span>
+                    <span class="w-3 h-3 rounded-full bg-gray-300 transition-all"></span>
+                    <span class="w-3 h-3 rounded-full bg-gray-300 transition-all"></span>
+                    <span class="w-3 h-3 rounded-full bg-gray-300 transition-all"></span>
+                    <span class="w-3 h-3 rounded-full bg-gray-300 transition-all"></span>
+                </div>
+
+                <button id="nextBtn" onclick="changeSlide(1)" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-2 rounded-full text-sm transition flex items-center gap-1 shadow-md">
+                    Next <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal for Forgive Confirmation -->
+    <div id="forgiveModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full rounded-3xl p-6 text-center space-y-4">
+            <div class="text-6xl">⚖️💖🎉</div>
+            <h3 class="text-2xl font-bold title-font text-purple-900">OBJECTION OVERRULED!</h3>
+            <p class="text-gray-700 font-medium">
+                "Case dismissed with warm hugs and lots of love! You are the sweetest sister ever!" 🥰
+            </p>
+            <button onclick="closeModal()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2.5 rounded-full shadow-lg transition">
+                Proceed to Celebration Plan ➔
+            </button>
+        </div>
+    </div>
+
+    <footer class="relative z-10 text-center py-3 text-xs text-white/90 font-medium">
+        Made with ❤️ for the Best Advocate Sister | Happy Birthday!
+    </footer>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function updateSlides() {
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide${i}`);
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            }
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            
+            const nextBtn = document.getElementById('nextBtn');
+            if (currentSlide === totalSlides) {
+                nextBtn.innerHTML = 'Celebrate Again 🎉';
+            } else {
+                nextBtn.innerHTML = 'Next <i class="fa-solid fa-chevron-right"></i>';
+            }
+
+            const dots = document.getElementById('dotContainer').children;
+            for (let i = 0; i < dots.length; i++) {
+                if (i === currentSlide - 1) {
+                    dots[i].className = 'w-6 h-3 rounded-full bg-purple-600 transition-all';
+                } else {
+                    dots[i].className = 'w-3 h-3 rounded-full bg-gray-300 transition-all';
+                }
+            }
+        }
+
+        function changeSlide(direction) {
+            if (currentSlide === totalSlides && direction === 1) {
+                currentSlide = 1;
+                triggerConfetti();
+            } else {
+                currentSlide += direction;
+                if (currentSlide < 1) currentSlide = 1;
+                if (currentSlide > totalSlides) currentSlide = totalSlides;
+            }
+            updateSlides();
+        }
+
+        /* Escaping No Button Handler */
+        function runawayNo() {
+            const btn = document.getElementById('noBtn');
+            const container = document.getElementById('buttonArea');
+            
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+
+            const maxX = containerRect.width - btnRect.width;
+
+            const randomX = Math.floor(Math.random() * Math.max(maxX, 120)) - (maxX / 2);
+            const randomY = Math.floor(Math.random() * 80) - 40;
+
+            btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function forgiveAccepted() {
+            triggerConfetti();
+            document.getElementById('forgiveModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('forgiveModal').classList.add('hidden');
+            changeSlide(1);
+        }
+
+        function selectTreatOption(optionText) {
+            const conf = document.getElementById('treatConfirmation');
+            conf.classList.remove('hidden');
+            conf.innerHTML = `📜 Official Summons Issued for: <strong>${optionText}</strong>! 🥳🎉`;
+            triggerConfetti();
+        }
+
+        function selectCustomDate(dateVal) {
+            if (!dateVal) return;
+            const conf = document.getElementById('treatConfirmation');
+            conf.classList.remove('hidden');
+            conf.innerHTML = `📜 Date Locked: <strong>${dateVal}</strong>! Summons delivered to Advocate Di! 🎂`;
+            triggerConfetti();
+        }
+
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        /* Floating Balloons */
+        function createBalloons() {
+            const container = document.getElementById('balloonContainer');
+            const colors = ['#ff7eb3', '#ff758c', '#4299e1', '#9f7aea', '#f6ad55', '#48bb78'];
+            
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                
+                const size = Math.floor(Math.random() * 30) + 40;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const duration = Math.random() * 6 + 8;
+                const delay = Math.random() * 5;
+
+                balloon.innerHTML = `
+                    <svg width="${size}" height="${size * 1.2}" viewBox="0 0 50 60">
+                        <ellipse cx="25" cy="25" rx="20" ry="24" fill="${color}" />
+                        <polygon points="25,49 20,55 30,55" fill="${color}" />
+                        <line x1="25" y1="55" x2="25" y2="70" stroke="#888" stroke-width="1.5"/>
+                    </svg>
+                `;
+
+                balloon.style.left = `${left}%`;
+                balloon.style.animationDuration = `${duration}s`;
+                balloon.style.animationDelay = `${delay}s`;
+
+                container.appendChild(balloon);
+            }
+        }
+
+        /* Web Audio API Synthesizer */
+        let audioCtx = null;
+        let isPlayingMusic = false;
+        let musicInterval = null;
+
+        const melody = [
+            { note: 264, duration: 350 }, { note: 264, duration: 350 },
+            { note: 297, duration: 700 }, { note: 264, duration: 700 },
+            { note: 352, duration: 700 }, { note: 330, duration: 1200 },
+            { note: 264, duration: 350 }, { note: 264, duration: 350 },
+            { note: 297, duration: 700 }, { note: 264, duration: 700 },
+            { note: 396, duration: 700 }, { note: 352, duration: 1200 }
+        ];
+
+        function playNote(freq, duration) {
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (duration / 1000));
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + (duration / 1000));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        function startMelody() {
+            let noteIdx = 0;
+            isPlayingMusic = true;
+            document.getElementById('musicText').innerText = 'Pause Tune ⏸️';
+            
+            function playNext() {
+                if (!isPlayingMusic) return;
+                const current = melody[noteIdx];
+                playNote(current.note, current.duration);
+                noteIdx = (noteIdx + 1) % melody.length;
+                musicInterval = setTimeout(playNext, current.duration + 50);
+            }
+            playNext();
+        }
+
+        function stopMelody() {
+            isPlayingMusic = false;
+            clearTimeout(musicInterval);
+            document.getElementById('musicText').innerText = 'Play B\'day Tune 🎵';
+        }
+
+        function toggleMusic() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (isPlayingMusic) {
+                stopMelody();
+            } else {
+                startMelody();
+            }
+        }
+
+        window.onload = function() {
+            updateSlides();
+            createBalloons();
+            triggerConfetti();
+
+            document.body.addEventListener('click', function initAudio() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                document.body.removeEventListener('click', initAudio);
+            }, { once: true });
+        };
+    </script>
+</body>
+</html>
